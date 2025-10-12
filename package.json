@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/hoz-code/simpleAppPageWeb/issues"
   },
-  "homepage": "https://github.com/hoz-code/simpleAppPageWeb#readme"
+  "homepage": "https://github.com/hoz-code/simpleAppPageWeb#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
