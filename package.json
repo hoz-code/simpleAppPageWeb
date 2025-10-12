@@ -1,0 +1,24 @@
+{
+  "name": "simappweb",
+  "version": "1.0.0",
+  "description": "Simple App Web page",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoz-code/simpleAppPageWeb.git"
+  },
+  "keywords": [
+    "app",
+    "web",
+    "page"
+  ],
+  "author": "hoz-code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoz-code/simpleAppPageWeb/issues"
+  },
+  "homepage": "https://github.com/hoz-code/simpleAppPageWeb#readme"
+}
