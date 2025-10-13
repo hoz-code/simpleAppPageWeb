@@ -4,6 +4,7 @@ import path from 'path' //module inside nodejs
 import { fileURLToPath } from 'url'; //module inside nodejs
 
 import express from 'express' //module installed 
+import exphbs from 'express-handlebars'; //module installed
 
 
 const app = express();
@@ -12,6 +13,26 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 app.use(express.static(path.join(__dirname, 'frontend')))
+//app.use(express.static(path.join(__dirname, 'views')))
+
+
+app.engine('handlebars', exphbs.engine({
+    defaultLayout: 'main',
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials'
+}));
+
+app.set('view engine', 'handlebars')
+app.set('views', './views')
+
+
+app.get('/hbs', (req, res) => {
+    res.render('home', {
+        title: 'Welcome to Handlebars!',
+        message: 'This is a dynamic message from Express.'
+    })
+})
+
 
 app.get('/', (req, res) => {
     res.send({ "response": "Ok response" })

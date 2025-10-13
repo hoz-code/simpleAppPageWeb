@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/hoz-code/simpleAppPageWeb#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.1"
   }
 }
