@@ -15,6 +15,7 @@ const __dirname = path.dirname(__filename)
 app.use(express.static(path.join(__dirname, 'frontend')))
 //app.use(express.static(path.join(__dirname, 'views')))
 
+console.log('THIS LOG IS PROBE FOR FLY SERVICE')
 
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main',
@@ -38,6 +39,6 @@ app.get('/', (req, res) => {
     res.send({ "response": "Ok response" })
 })
 
-//app.listen(port, () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
+app.listen(port, () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
 
-app.listen(port, '0.0.0.0',() => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in internet
+//app.listen(port, '0.0.0.0',() => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in internet
