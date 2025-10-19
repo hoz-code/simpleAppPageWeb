@@ -15,6 +15,7 @@ const __dirname = path.dirname(__filename)
 app.use(express.static(path.join(__dirname, 'frontend')))
 //app.use(express.static(path.join(__dirname, 'views')))
 
+console.log('THIS LOG IS PROBE FOR FLY SERVICE')
 
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main',
