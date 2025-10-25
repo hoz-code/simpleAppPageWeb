@@ -44,6 +44,6 @@ app.get('/', (req, res) => {
 
 //app.listen(port, '127.0.0.1', () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
 
-app.listen(port, '127.0.0.1', () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
+app.listen(port, '0.0.0.0', () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
 
 //app.listen(port, '0.0.0.0',() => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in internet
