@@ -28,12 +28,12 @@ app.set('view engine', 'handlebars')
 app.set('views', './views')
 
 
-/*app.get('/hbs', (req, res) => {
+app.get('/hbs', (req, res) => {
     res.render('home', {
         title: 'Welcome to Handlebars!',
         message: 'This is a dynamic message from Express.'
     })
-})*/
+})
 
 
 app.get('/', (req, res) => {
