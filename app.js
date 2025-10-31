@@ -9,7 +9,8 @@ import exphbs from 'express-handlebars'; //module installed
 
 const app = express();
 //const port = 3000 || process.env.PORT
-const port = process.env.PORT || 4000
+//const port = process.env.PORT || 4000
+const port = 3000
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
