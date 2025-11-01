@@ -14,31 +14,39 @@ const port = 3000
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-app.use(express.static(path.join(__dirname, 'frontend')))
+//app.use(express.static(path.join(__dirname, 'frontend')))
 //app.use(express.static(path.join(__dirname, 'views')))
 
 console.log('THIS LOG IS PROBE FOR RENDER SERVICE')
 
-app.engine('handlebars', exphbs.engine({
+/*app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main',
     layoutsDir: __dirname + '/views/layouts',
     partialsDir: __dirname + '/views/partials'
-}));
+}));*/
 
-app.set('view engine', 'handlebars')
-app.set('views', './views')
+/*app.set('view engine', 'handlebars')
+app.set('views', './views')*/
 
 
-app.get('/hbs', (req, res) => {
+/*app.get('/hbs', (req, res) => {
     res.render('home', {
         title: 'Welcome to Handlebars!',
         message: 'This is a dynamic message from Express.'
     })
-})
+})*/
 
 
 app.get('/', (req, res) => {
     res.send({ "response": "Ok response" })
+})
+
+app.get('/hbs', (req, res) => {
+    res.send({ "response": "Ok hsb" })
+})
+
+app.get('/hbs/rtx', (req, res) => {
+    res.send({ "response": "Ok rtx" })
 })
 
 //app.listen(port, () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
