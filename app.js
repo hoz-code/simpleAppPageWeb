@@ -36,7 +36,7 @@ app.set('views', './views')*/
     })
 })*/
 
-app.set('trust proxy', true)
+app.set('trust proxy', 'loopback')
 
 app.get('/', (req, res) => {
     res.send({ "response": "Ok response" })
