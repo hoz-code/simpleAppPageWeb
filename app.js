@@ -38,6 +38,7 @@ app.set('views', './views')*/
 
 app.set('trust proxy', 'loopback')
 
+
 app.get('/', (req, res) => {
     res.send({ "response": "Ok response" })
 })
@@ -46,7 +47,7 @@ app.get('/hbs', (req, res) => {
     res.send({ "response": "Ok hsb" })
 })
 
-app.get('/hbs/rtx', (req, res) => {
+app.get('/rtx', (req, res) => {
     res.send({ "response": "Ok rtx" })
 })
 
