@@ -6,6 +6,11 @@ import { fileURLToPath } from 'url'; //module inside nodejs
 import express from 'express' //module installed 
 import exphbs from 'express-handlebars'; //module installed
 
+import { database } from './db/configdb.js';
+
+const databasel = database
+console.log('Im goint to run database funciton')
+databasel();
 
 const app = express();
 //const port = 3000 || process.env.PORT
