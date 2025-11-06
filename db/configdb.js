@@ -2,16 +2,20 @@
 import { Client } from 'pg'
 
 const database = async () => {
-
+    console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
     const client = new Client()
     await client.connect()
 
     try {
+        console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
         const res = await client.query('SELECT $1::text as message', ['Hello world!'])
         console.log(res.rows[0].message) // Hello world!
     } catch (err) {
+        console.log('****************************')
         console.error(err);
+
     } finally {
+        console.log('///////////////////////////')
         await client.end()
     }
 
