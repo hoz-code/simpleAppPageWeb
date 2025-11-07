@@ -2,8 +2,14 @@
 import { Client } from 'pg'
 
 const database = async () => {
+
     console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
-    const client = new Client()
+    const client = new Client({
+        user: 'postgres',
+        host: 'localhost',
+        database: 'postgres',
+        port: 5432,
+    })
     await client.connect()
 
     try {
