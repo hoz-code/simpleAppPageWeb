@@ -10,6 +10,7 @@ import { database } from './db/configdb.js';
 
 const databasel = database
 console.log('Im goint to run database funciton')
+
 databasel();
 
 const app = express();
