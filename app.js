@@ -15,22 +15,28 @@ const connectiondatabase = database
 
 console.log("IM CONECTING /////////////////////////////")
 
-
-let succesfullDBConnection = 0;
-succesfullDBConnection = await connectiondatabase()
-console.log(succesfullDBConnection);
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true }));  // for parsing application/x-www-form-urlencoded
 
 
-app.get('/', (req, res) => {
-    res.send({ "response": "Ok response" })
+app.get('/pokeselect', async (req, res) => {
+    const result = await connectiondatabase('pokeselect', null)
+    res.send(result)
 })
 
-app.get('/hbs', (req, res) => {
-    res.send(succesfullDBConnection[0])
+app.patch('/pokeupdate', async (req, res) => {
+    const result = await connectiondatabase('pokeupdate', req.body)
+    res.send(result)
 })
 
-app.get('/rtx', (req, res) => {
-    res.send({ "response": "Ok rtx" })
+app.delete('/pokedelete', async (req, res) => {
+    const result = await connectiondatabase('pokedelete', req.body)
+    res.send(result)
+})
+
+app.post('/pokeinsert', async (req, res) => {
+    const result = await connectiondatabase('pokeinsert', req.body)
+    res.send(result)
 })
 
 

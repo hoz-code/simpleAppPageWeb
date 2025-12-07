@@ -1,8 +1,6 @@
-//import pg from 'pg'
 import pg from 'pg'
 
-const database = async () => {
-
+const database = async (nameQuery, info) => {
     const cruduser = new pg.Client({
         user: 'cruduser',
         password: '123+*',
@@ -10,25 +8,45 @@ const database = async () => {
         database: 'prbdatabase',
         port: 5432,
     })
-
     await cruduser.connect()
-    // INSERT INTO pokeinfo (code, name) VALUE (29, 'nidoran');
-    // SELECT * FROM pokeinfo;
+
     try {
-        //const res = await cruduser.query("INSERT INTO pokeinfo (code, name) VALUES (29, 'nidoran');")
-        const res = await cruduser.query("SELECT * FROM pokeinfo;")
-        await cruduser.end()
-        return res.rows
+        let queryStm = ''
+        let res = ''
+        switch (nameQuery) {
+            case "pokeinsert":
+                queryStm = `INSERT INTO pokeinfo (code, name) VALUES (${info.code}, '${info.name}');`
+                res = await cruduser.query(`${queryStm}`)
+                return res
+        
+            case "pokeselect":
+                queryStm = `SELECT * FROM pokeinfo;`
+                res = await cruduser.query(`${queryStm}`)
+                return res
+            
+            case "pokeupdate":
+                queryStm = `UPDATE pokeinfo SET name = '${info.name}' WHERE code = ${info.code};`
+                console.log(queryStm)
+                res = await cruduser.query(`${queryStm}`)
+                return res
+
+            case "pokedelete":
+                queryStm = `DELETE FROM pokeinfo WHERE code = ${info.code};`
+                console.log(queryStm)
+                res = await cruduser.query(`${queryStm}`)
+                return res
+        }
     }
 
     catch (err) {
+        console.log(err)
         return err
     }
 
-    /*finally {
+    finally {
         console.log('///////////////////////////')
-        
-    }*/
+        await cruduser.end()
+    }
 
 }
 
