@@ -13,8 +13,12 @@ const app = express();
 const port = 3000 || process.env.PORT
 const connectiondatabase = database
 
+console.log("IM CONECTING /////////////////////////////")
 
-connectiondatabase();
+
+let succesfullDBConnection = 0;
+succesfullDBConnection = await connectiondatabase()
+console.log(succesfullDBConnection);
 
 
 app.get('/', (req, res) => {
@@ -22,12 +26,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/hbs', (req, res) => {
-    res.send({ "response": "Ok hsb" })
+    res.send(succesfullDBConnection[0])
 })
 
 app.get('/rtx', (req, res) => {
     res.send({ "response": "Ok rtx" })
 })
+
 
 //app.listen(port, () => { console.log(`Server is listening: Port ${port}`) }) //This line is for set the listener server in local host or in the same net
 

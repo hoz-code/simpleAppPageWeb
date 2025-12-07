@@ -1,9 +1,9 @@
 //import pg from 'pg'
-import { Client } from 'pg'
+import pg from 'pg'
 
 const database = async () => {
 
-    const client = new Client({
+    const cruduser = new pg.Client({
         user: 'cruduser',
         password: '123+*',
         host: 'localhost',
@@ -11,19 +11,23 @@ const database = async () => {
         port: 5432,
     })
 
-    await client.connect()
-
+    await cruduser.connect()
+    // INSERT INTO pokeinfo (code, name) VALUE (29, 'nidoran');
+    // SELECT * FROM pokeinfo;
     try {
-        return 1
-    } 
-    
+        //const res = await cruduser.query("INSERT INTO pokeinfo (code, name) VALUES (29, 'nidoran');")
+        const res = await cruduser.query("SELECT * FROM pokeinfo;")
+        await cruduser.end()
+        return res.rows
+    }
+
     catch (err) {
         return err
-    } 
-    
+    }
+
     /*finally {
         console.log('///////////////////////////')
-        await client.end()
+        
     }*/
 
 }
