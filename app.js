@@ -1,48 +1,20 @@
-//First Line
-
-import path from 'path' //module inside nodejs
-import { fileURLToPath } from 'url'; //module inside nodejs
-
+//Outside packages
 import express from 'express' //module installed 
-import exphbs from 'express-handlebars'; //module installed
 
+//internal packages
+
+
+// own packages
 import { database } from './db/configdb.js';
 
-const databasel = database
-console.log('Im goint to run database funciton')
 
-databasel();
-
+//set parameters
 const app = express();
-//const port = 3000 || process.env.PORT
-//const port = process.env.PORT || 4000
-const port = 3000
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-//app.use(express.static(path.join(__dirname, 'frontend')))
-//app.use(express.static(path.join(__dirname, 'views')))
-
-console.log('THIS LOG IS PROBE FOR RENDER SERVICE')
-
-/*app.engine('handlebars', exphbs.engine({
-    defaultLayout: 'main',
-    layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials'
-}));*/
-
-/*app.set('view engine', 'handlebars')
-app.set('views', './views')*/
+const port = 3000 || process.env.PORT
+const connectiondatabase = database
 
 
-/*app.get('/hbs', (req, res) => {
-    res.render('home', {
-        title: 'Welcome to Handlebars!',
-        message: 'This is a dynamic message from Express.'
-    })
-})*/
-
-app.set('trust proxy', 'loopback')
+connectiondatabase();
 
 
 app.get('/', (req, res) => {
